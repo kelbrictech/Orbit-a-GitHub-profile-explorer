@@ -2,7 +2,7 @@
 
 Explore any public GitHub profile as an interactive orbit diagram: repos laid out around the user's avatar, sized by star count and colored by language. No backend, no database, no login.
 
-**[Live demo →](#)** *(add your GitHub Pages link here after deploying)*
+**[Live demo →](https://arjayb.github.io/Orbit-a-GitHub-profile-explorer/)**
 
 ![Orbit screenshot](./screenshot.png)
 
