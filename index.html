@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Orbit — GitHub Profile Explorer</title>
+<meta name="description" content="Explore any GitHub profile as an orbit of their repositories, sized by stars." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">GitHub Profile Explorer</p>
+      <h1 class="headline">Orbit</h1>
+      <p class="subhead">Every developer's repos, laid out like a solar system — bigger stars, bigger orbits.</p>
+
+      <form id="searchForm" class="search" autocomplete="off">
+        <input
+          type="text"
+          id="usernameInput"
+          class="search__input"
+          placeholder="Enter a GitHub username"
+          aria-label="GitHub username"
+          spellcheck="false"
+        />
+        <button type="submit" class="search__btn">Explore</button>
+      </form>
+
+      <div class="chips" id="exampleChips">
+        <span class="chips__label">Try:</span>
+        <button type="button" class="chip" data-username="torvalds">torvalds</button>
+        <button type="button" class="chip" data-username="gaearon">gaearon</button>
+        <button type="button" class="chip" data-username="sindresorhus">sindresorhus</button>
+        <button type="button" class="chip" data-username="addyosmani">addyosmani</button>
+      </div>
+    </header>
+
+    <p class="status" id="statusLine" role="status"></p>
+
+    <section id="results" class="results" hidden>
+
+      <div class="profile-card">
+        <img id="avatarImg" class="profile-card__avatar" alt="" width="72" height="72" />
+        <div class="profile-card__info">
+          <h2 id="profileName" class="profile-card__name"></h2>
+          <p id="profileLogin" class="profile-card__login"></p>
+          <p id="profileBio" class="profile-card__bio"></p>
+        </div>
+        <a id="profileLink" class="profile-card__link" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+      </div>
+
+      <div class="stat-row" id="statRow"></div>
+
+      <div class="orbit-section">
+        <h3 class="section-label">Top repositories, by orbit</h3>
+        <p class="section-hint">Distance from center = rank. Size = stars. Select one to see details.</p>
+        <div class="orbit-wrap" id="orbitWrap">
+          <div class="orbit-ring orbit-ring--1" aria-hidden="true"></div>
+          <div class="orbit-ring orbit-ring--2" aria-hidden="true"></div>
+          <div class="orbit-center" id="orbitCenter"></div>
+        </div>
+        <div class="orbit-detail" id="orbitDetail">
+          <p class="orbit-detail__hint">Hover or select a repo above to see its details here.</p>
+        </div>
+      </div>
+
+      <div class="languages-section">
+        <h3 class="section-label">Language breakdown</h3>
+        <p class="section-hint">Share of top repositories by primary language.</p>
+        <div class="lang-bar" id="langBar"></div>
+        <div class="lang-legend" id="langLegend"></div>
+      </div>
+
+      <div class="repo-list-section">
+        <h3 class="section-label">All repositories</h3>
+        <div class="repo-sort">
+          <label for="sortSelect">Sort by</label>
+          <select id="sortSelect">
+            <option value="stars">Most stars</option>
+            <option value="updated">Recently updated</option>
+            <option value="name">Name (A–Z)</option>
+          </select>
+        </div>
+        <ul class="repo-list" id="repoList"></ul>
+      </div>
+
+    </section>
+
+    <footer class="page__footer">
+      <p>Data via the <a href="https://docs.github.com/en/rest" target="_blank" rel="noopener noreferrer">GitHub REST API</a> — public data only, no login required. Unauthenticated requests are rate-limited to 60/hour per IP.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
