@@ -66,3 +66,14 @@ All data comes from the public [GitHub REST API](https://docs.github.com/en/rest
 ## License
 
 MIT — use this however you'd like.
+
+
+---
+
+## About KELBRIC Technologies
+
+We turn practical ideas and operational needs into focused digital products through rapid prototyping and evidence-based iteration.
+
+**Public product process:** DISCOVER → DESIGN → BUILD → PROVE
+
+© 2026 KELBRIC Technologies.
